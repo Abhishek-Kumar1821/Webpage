@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+</head>
+<body>
+  <h1>Product Feedback Survey</h1>
+  <form action="#" method="POST">
+    <fieldset>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="rating">How would you rate our product?</label><br>
+    <input type="radio" id="excellent" name="rating" value="Excellent" required>
+    <label for="excellent">Excellent</label><br>
+    <input type="radio" id="good" name="rating" value="Good">
+    <label for="good">Good</label><br>
+    <input type="radio" id="average" name="rating" value="Average">
+    <label for="average">Average</label><br>
+    <input type="radio" id="poor" name="rating" value="Poor">
+    <label for="poor">Poor</label><br><br>
+
+    <label for="feedback">Additional Comments:</label><br>
+    <textarea id="feedback" name="feedback" rows="4"></textarea><br><br>
+
+    <label for="subscribe">Would you like to subscribe to our newsletter?</label><br>
+    <input type="checkbox" id="subscribe" name="subscribe"><br><br>
+
+    <label for="preferredContact">Preferred method of contact:</label><br>
+    <select id="preferredContact" name="preferredContact">
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+</body>
+</html>

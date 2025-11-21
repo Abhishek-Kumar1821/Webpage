@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <style>
+        /* CSS styling for the upload container */
+        .upload-container {
+            height: 300px;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            border: 2px solid #ccc;  
+             
+        }
+
+        
+        label, p {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <label for="file">Upload here:</label>
+        <input type="file" name="file" id="file" accept="image/jpeg" required>
+        <p style="color: red;">Note: Upload your file in JPEG format & the size of the file should be 50 KB.</p>
+    </div>
+</body>
+</html>

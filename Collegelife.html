@@ -1,0 +1,126 @@
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Memories</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #4e73df;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background: #2e59d9;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img, .gallery video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover, .gallery video:hover {
+      transform: scale(1.05);
+    }
+
+    /* Thoughts Section */
+    .thoughts {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .thoughts h2 {
+      margin-top: 0;
+      color: #2e59d9;
+    }
+
+    footer {
+      background: #4e73df;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎓 Hostel & College Memories</h1>
+    <p>A place to relive our best moments ❤</p>
+  </header>
+
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#thoughts">Thoughts</a>
+  </nav>
+
+  <section id="gallery">
+    <h2>📸 Photos & Videos</h2>
+    <div class="gallery">
+      <img src="clg2.jpg" alt="Hostel Room">
+      <img src="clg3.jpg" alt="College Friends">
+      <video controls>
+        <source src="clg4.mp4" type="video/mp4">
+      </video> 
+      <img src="clg5.jpg" alt="Farewell Party">
+    </div>
+  </section>
+
+  <section id="thoughts">
+    <div class="thoughts">
+      <h2>💭 Our Thoughts</h2>
+      <p>“Hostel nights were the best nights of our lives…”</p>
+      <p>“College friends are not just friends, they are family.”</p>
+      <p>“Memories fade, but the bond remains forever.”</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with ❤ for unforgettable hostel & college memories</p>
+  </footer>
+
+</body>
+</html>

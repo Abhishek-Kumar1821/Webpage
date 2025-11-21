@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Page Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      padding: 20px;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .question {
+      display: none;
+      margin: 20px 0;
+    }
+    .question.active {
+      display: block;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    button {
+      background: #2c3e50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #34495e;
+    }
+    #result {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>Multi-Page Quiz</h1>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question active">
+        <p>1. HTML stands for?</p>
+        <input type="radio" name="q1" value="a"> Hyper Text Markup Language <br>
+        <input type="radio" name="q1" value="b"> High Transfer Markup Language <br>
+        <input type="radio" name="q1" value="c"> Hyperlinks Text Management Language <br>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. Which tag is used to insert an image in HTML?</p>
+        <input type="radio" name="q2" value="a"> &lt;img&gt; <br>
+        <input type="radio" name="q2" value="b"> &lt;image&gt; <br>
+        <input type="radio" name="q2" value="c"> &lt;picture&gt; <br>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. CSS is used for?</p>
+        <input type="radio" name="q3" value="a"> Styling web pages <br>
+        <input type="radio" name="q3" value="b"> Storing data <br>
+        <input type="radio" name="q3" value="c"> Server-side programming <br>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <p>4. Which language is used for client-side scripting?</p>
+        <input type="radio" name="q4" value="a"> JavaScript <br>
+        <input type="radio" name="q4" value="b"> Python <br>
+        <input type="radio" name="q4" value="c"> PHP <br>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <p>5. Which tag is used to create a hyperlink?</p>
+        <input type="radio" name="q5" value="a"> &lt;link&gt; <br>
+        <input type="radio" name="q5" value="b"> &lt;a&gt; <br>
+        <input type="radio" name="q5" value="c"> &lt;href&gt; <br>
+      </div>
+
+      <div class="buttons">
+        <button type="button" onclick="prevQuestion()">Previous</button>
+        <button type="button" onclick="nextQuestion()">Next</button>
+        <button type="button" onclick="submitQuiz()" style="display:none;">Submit</button>
+      </div>
+    </form>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script>
+    let currentQuestion = 0;
+    let questions = document.querySelectorAll(".question");
+    let nextBtn = document.querySelector(".buttons button:nth-child(2)");
+    let prevBtn = document.querySelector(".buttons button:nth-child(1)");
+    let submitBtn = document.querySelector(".buttons button:nth-child(3)");
+
+    function showQuestion(index) {
+      questions.forEach((q, i) => {
+        q.classList.remove("active");
+        if (i === index) q.classList.add("active");
+      });
+
+      prevBtn.style.display = index === 0 ? "none" : "inline-block";
+      nextBtn.style.display = index === questions.length - 1 ? "none" : "inline-block";
+      submitBtn.style.display = index === questions.length - 1 ? "inline-block" : "none";
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+      }
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let answers = { q1: "a", q2: "a", q3: "a", q4: "a", q5: "b" };
+      let form = document.forms["quizForm"];
+
+      for (let key in answers) {
+        if (form[key].value === answers[key]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / " + Object.keys(answers).length;
+    }
+
+    // Initial load
+    showQuestion(currentQuestion);
+  </script>
+
+</body>
+</html>
